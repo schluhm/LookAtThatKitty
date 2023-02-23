@@ -9,13 +9,13 @@ public class HandController : MonoBehaviour
     public void OnMouseDown()
     {
         SpawnParticles();
-        transform.Rotate(Vector3.forward * -45);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         controller.ReportActionSuccess((int)PromptController.Prompt.Pet);
     }
 
     public void OnMouseUp()
     {
-        transform.Rotate(Vector3.forward * 45);
+        transform.rotation = Quaternion.Euler(0, 0, 45);
     }
     
     public void SpawnParticles()

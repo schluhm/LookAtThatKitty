@@ -14,6 +14,6 @@ public class PromptTextListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _text.text = promptController.PromptText;
+        _text.text = promptController.promptText;
     }
 }

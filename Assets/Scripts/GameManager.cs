@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
     public bool started;
     [SerializeField] private AudioSource gameTrack; 
     [SerializeField] private PromptController promptController;
+    [SerializeField] private Vector2 promptRange;
     public UnityEvent startGame;
     public UnityEvent finishedGame;
+    
 
     public void StartGame()
     {
@@ -17,20 +19,22 @@ public class GameManager : MonoBehaviour
         promptController.score = 0;
         gameTrack.time = 0;
         gameTrack.Play();
+        Invoke(nameof(FinishGame), gameTrack.clip.length);
         started = true;
+    }
+
+    private void FinishGame()
+    {
+        started = false;
+        finishedGame.Invoke();
     }
 
     private void Update()
     {
         if (!started) return;
-        if (!gameTrack.isPlaying)
+        if (promptController.timerRatio <= 0)
         {
-            started = false;
-            finishedGame.Invoke();
-        }
-        if (promptController.TimerRatio <= 0)
-        {
-            promptController.SetPrompt((PromptController.Prompt) Random.Range(4,5));
+            promptController.SetPrompt((PromptController.Prompt) Random.Range(promptRange.x, promptRange.y));
         }
     }
 }

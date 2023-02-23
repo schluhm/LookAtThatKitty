@@ -6,8 +6,8 @@ public class PromptController : MonoBehaviour
 {
     private float _timer;
     [SerializeField] private float maxTimer = 5f;
-    public float TimerRatio;
-    public string PromptText;
+    public float timerRatio;
+    public string promptText;
     public Prompt state;
     public int score;
     public int combo = 0;
@@ -16,8 +16,10 @@ public class PromptController : MonoBehaviour
     private void Update()
     {
         _timer -= Time.deltaTime;
-        TimerRatio = _timer / maxTimer;
+        timerRatio = _timer / maxTimer;
     }
+
+    public void SetPrompt(int prompt) => SetPrompt((Prompt)prompt);
 
     public void SetPrompt(Prompt prompt)
     {
@@ -31,9 +33,10 @@ public class PromptController : MonoBehaviour
     {
         state = prompt;
     }
+
     private void SetPromptText(Prompt prompt)
     {
-        PromptText = prompt switch
+        promptText = prompt switch
         {
             Prompt.Feed => "Feed that kitty!",
             Prompt.Bait => "Bait that kitty!",
@@ -41,7 +44,8 @@ public class PromptController : MonoBehaviour
             Prompt.Pet => "Pet that kitty!",
             Prompt.Checkmate => "Checkmate that kitty!",
             Prompt.Scratch => "Scratch that kitty!",
-            _ => PromptText
+            Prompt.Dance => "Dance for that kitty!",
+            _ => promptText
         };
     }
 
@@ -55,6 +59,7 @@ public class PromptController : MonoBehaviour
             Prompt.Pet => 5f,
             Prompt.Checkmate => 7f,
             Prompt.Scratch => 5f,
+            Prompt.Dance => 5f,
             _ => _timer
         };
     }
@@ -64,7 +69,7 @@ public class PromptController : MonoBehaviour
         var prompt = (Prompt)promptIndex;
         if (prompt.Equals(state))
         {
-            score += (int)(100 * TimerRatio);
+            score += (int)(100 * timerRatio) * combo;
             combo++;
         }
         else
@@ -76,18 +81,20 @@ public class PromptController : MonoBehaviour
         var prompt = (Prompt)promptIndex;
         if (prompt.Equals(state) && success)
         {
-            score += (int)(100 * TimerRatio);
+            score += (int)(100 * timerRatio);
             combo++;
         }
         else if (prompt.Equals(state) && !success)
             combo = 0;
+
         _timer = prompt switch
         {
             Prompt.Checkmate => 0f,
+            Prompt.Scratch => 0f,
             _ => _timer
         };
     }
-    
+
     public enum Prompt
     {
         Feed = 0,
@@ -95,6 +102,8 @@ public class PromptController : MonoBehaviour
         Bait = 2,
         Drug = 3,
         Checkmate = 4,
-        Scratch = 5
+        Scratch = 5,
+        Dance = 6,
+        Look = 7
     }
 }

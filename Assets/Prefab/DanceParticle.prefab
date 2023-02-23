@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5379096571370153935}
   - component: {fileID: 5379096571370153928}
   m_Layer: 0
-  m_Name: PetParticle
+  m_Name: DanceParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -70,6 +70,7 @@ namespace Chess
 
         public void SetupRiddle()
         {
+            if(_riddles is null) Start();
             if (_activeFigures.Count > 0)
                 RemoveAllFigures();
             var riddleString = _riddles[Random.Range(0, _riddles.Count)];
