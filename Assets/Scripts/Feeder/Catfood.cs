@@ -67,7 +67,7 @@ public class Catfood : MonoBehaviour
     {
         if(!clicked) return;
         var position = _rigidbody2D.position;
-        _rigidbody2D.MovePosition(position + ((Vector2) Camera.main!.ViewportToWorldPoint(new Vector2(0.5f, 0.5f)) - position) * speed);
+        _rigidbody2D.MovePosition(position + ((Vector2) Camera.main!.ViewportToWorldPoint(new Vector2(0.5f, 0f)) - position) * speed);
     }
 
     public void DestroyFood(bool fed)

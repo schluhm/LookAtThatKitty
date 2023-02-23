@@ -66,7 +66,7 @@ public class KittyFeeder : PromptAction
         else
         {
             x = (Random.Range(0f, 1f) * worldBoundDiff.x) + worldLowerBounds.x;
-            y = ((coinFlip ? -0.1f : 1.1f) * worldBoundDiff.y) + worldLowerBounds.y;
+            y =  1.1f * worldBoundDiff.y + worldLowerBounds.y;
         }
         var spawnPoint = new Vector3(x, y, 10f);
         var newFood = Instantiate(foodPrefab, spawnPoint, Quaternion.identity);
