@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Utility;
+using Random = UnityEngine.Random;
 
 
 namespace Drugger
@@ -41,8 +42,8 @@ namespace Drugger
 
         private void SpawnDrug()
         {
-        
-            var x = (Random.Range(0f, 1f) * worldBoundDiff.x) + worldLowerBounds.x;
+            var coinFlip = Random.Range(0, 2);
+            var x = ((coinFlip ==0 ? Random.Range(.05f, .2f) : Random.Range(.8f , .95f)) * worldBoundDiff.x) + worldLowerBounds.x;
             var y =  1.1f * worldBoundDiff.y + worldLowerBounds.y;
         
             var spawnPoint = new Vector3(x, y, 10f);

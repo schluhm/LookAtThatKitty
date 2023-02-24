@@ -1163,6 +1163,7 @@ GameObject:
   - component: {fileID: 275998824}
   - component: {fileID: 275998825}
   - component: {fileID: 275998826}
+  - component: {fileID: 275998828}
   m_Layer: 0
   m_Name: dancer
   m_TagString: Untagged
@@ -1332,6 +1333,25 @@ RectTransform:
   m_AnchoredPosition: {x: -0.78, y: 0.63}
   m_SizeDelta: {x: 4.98, y: 4.98}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &275998828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275998818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c932709a6e0d7c54b98fd28b68dd1ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bias: 0
+  timeStep: 0
+  timeToBeat: 0
+  restSmoothTime: 0
+  lastHeight: 0
+  beatScale: {x: 0.8, y: 0.8, z: 0.8}
+  restScale: {x: 0.7, y: 0.7, z: 0.7}
 --- !u!1 &287799552
 GameObject:
   m_ObjectHideFlags: 0
@@ -7389,7 +7409,7 @@ MonoBehaviour:
   started: 0
   gameTrack: {fileID: 933163416}
   promptController: {fileID: 1944608298}
-  promptRange: {x: 5, y: 6}
+  promptRange: {x: 3, y: 4}
   startGame:
     m_PersistentCalls:
       m_Calls:

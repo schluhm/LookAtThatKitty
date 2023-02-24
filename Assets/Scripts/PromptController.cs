@@ -51,7 +51,7 @@ public class PromptController : MonoBehaviour
 
     private void SetPromptTimer(Prompt prompt)
     {
-        _timer = prompt switch
+        maxTimer = _timer = prompt switch
         {
             Prompt.Feed => 5f,
             Prompt.Bait => 5f,
