@@ -10,6 +10,7 @@ public class KittyScratcher : PromptAction
     [SerializeField] private float scratchLevelRatio;
     public UnityEvent stopScratching;
     [SerializeField] private GameObject scratchometer;
+    [SerializeField] private GameObject scratchStick;
     private Scratchometer _scratchometer;
 
     internal new void Start()
@@ -24,6 +25,7 @@ public class KittyScratcher : PromptAction
     {
         scratchLevel = 0f;
         scratchometer.SetActive(currentPrompt.Equals(prompt));
+        scratchStick.SetActive(currentPrompt.Equals(prompt));
         if (currentPrompt.Equals(prompt))
             _desiredScratchLevel = Random.Range(10f, 50f);
     }
