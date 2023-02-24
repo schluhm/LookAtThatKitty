@@ -1,19 +1,20 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PromptTextListener : MonoBehaviour
 {
-    private TextMeshProUGUI _text;
+    private Image _text;
+    [SerializeField] private List<Sprite> promptText;
     [SerializeField] private PromptController promptController;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _text = GetComponent<TextMeshProUGUI>();
+        _text = GetComponent<Image>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        _text.text = promptController.promptText;
+        _text.sprite = promptText[(int)promptController.state];
     }
 }
