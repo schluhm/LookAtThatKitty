@@ -98,6 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015c798d551fe0e45bab021d8c6b0c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.2627451, b: 0.2627451, a: 1}
+  - {r: 1, g: 0.68235296, b: 0.3137255, a: 1}
+  - {r: 1, g: 0.43529412, b: 0.94509804, a: 1}
+  - {r: 0.45164052, g: 0.21693665, b: 0.6132076, a: 1}
+  - {r: 0.43529412, g: 0.8980392, b: 1, a: 1}
   controller: {fileID: 0}
   baiter: {fileID: 0}
 --- !u!60 &4133761177028459516

@@ -23,6 +23,11 @@ public class PromptController : MonoBehaviour
 
     public void SetPrompt(Prompt prompt)
     {
+        if (prompt.Equals(Prompt.Pet))
+        {
+            SetPrompt(Prompt.Dance);
+            return;
+        }
         SetPromptState(prompt);
         SetPromptText(prompt);
         SetPromptTimer(prompt);

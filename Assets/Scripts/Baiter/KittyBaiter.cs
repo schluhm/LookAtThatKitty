@@ -1,3 +1,4 @@
+using Baiter;
 using UnityEngine;
 
 public class KittyBaiter : PromptAction
